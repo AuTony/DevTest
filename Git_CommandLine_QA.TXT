@@ -1,0 +1,5 @@
+how to initially push new data to github master?
+1, 'git init' to create local git
+2, 'git remote add origin https://github.com/user/repo.git'
+3, 'git pull origin master'
+4, 'git push origin master' 
