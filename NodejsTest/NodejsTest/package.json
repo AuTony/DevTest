@@ -1,0 +1,16 @@
+{
+  "name": "NodejsTest",
+  "version": "0.0.0",
+  "description": "NodejsTest",
+  "main": "app.js",
+  "author": {
+    "name": "thuang",
+    "email": ""
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongodb": "^2.0.52",
+    "mongoose": "^4.3.3",
+    "skeemas-body-parser": "^2.0.0"
+  }
+}
