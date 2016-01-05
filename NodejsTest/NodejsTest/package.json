@@ -10,8 +10,8 @@
   "dependencies": {
     "exec": "^0.2.1",
     "express": "^4.13.3",
-    "mongodb": "^2.0.52",
-    "mongoose": "^4.3.3",
+    "mongodb": "^2.1.3",
+    "mongoose": "^4.3.4",
     "skeemas-body-parser": "^2.0.0"
   }
 }
