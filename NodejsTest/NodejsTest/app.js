@@ -4,6 +4,7 @@ var express = require('express'); //Load express module
 //var http = require('http'); //Load Http module for Http operation
 
 var app = express(); //The Express object
+var router = express.Router();
 
 //app.use(body_Parser.json());
 //app.use(body_Parser.urlencoded({ extended: false }));
@@ -12,8 +13,14 @@ var restOP = require('./ResOperation.js');
 
 var communicationPort = 8888;
 
-//app.use('/', routers);
+router.get("/", function (req, res) {
+    res.json({ "error" : false, "message" : "Tony's Hello World" });
+});
+
+app.use('/', router);
+
 app.use('/restaurants/:RestID', restOP.get);
+
 
 //app.get('/restaurants/:RestID', restOP.get);
 

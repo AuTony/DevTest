@@ -7,6 +7,8 @@ var _ResSchema = require('./DataModel.js');
 
 mongoDrv.connect(DBConnectionStr);   // connect to mongoDB
 var db = mongoDrv.Connection; // get the connection
+//db.on('error', console.error.bind(console, 'Connection error:'));
+//db.on('open', function () { console.log("DB connected on: %s", DBConnectionStr) });
 
 if (db == 'undefined') {
     console.log("Cannot connect to database: %s", DBConnectionStr);
@@ -16,11 +18,14 @@ if (db == 'undefined') {
 var ResModel = mongoDrv.model('restaurants', _ResSchema);
 
 exports.get = function (req, resp) {
-   console.log("Get the data for:  %s",req.params.RestID);
+   console.log("Get the data for:  %s", req.params.RestID);
    ResModel.find({"restaurant_id":req.params.RestID}, function (error, res) {
         if (error) {
             resp.send(500, { error: error });
-        } else {
+        } else if (res.length == 0) {
+            resp.status(2001).send({ "error" : true, "message" : "no record!" });  //prefer to using resp.status(code).send(body)
+        }
+        else {
             resp.send(res);
         }
     });
